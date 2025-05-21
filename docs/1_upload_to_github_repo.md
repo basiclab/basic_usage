@@ -80,8 +80,19 @@ git remote add origin git@github.com:username/repository-name.git
 
 ```bash
 # Push to main branch
-git push -u origin main
+git push  origin main
+
+# Push from local branch to a different remote branch
+git push origin local_branch:remote_branch
 ```
+
+> For example, to push your local `feature` branch to a remote `dev` branch:
+>
+> ```bash
+> git push -u origin feature:dev
+> ```
+
+**Tip**: You can use `-u` to push the branch and set the upstream branch at the same time. Always be aware when using `git push` since you might not know what is the upstream branch. To see the upstream branch, you can use `git branch -vv`.
 
 ## 📝 Setting Up .gitignore
 
