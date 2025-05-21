@@ -4,7 +4,7 @@ This project provides comprehensive guides for essential development tools and p
 
 ## 📚 Available Guides
 
-### 1. [🔒 GitHub Private Repository Setup](docs/1_github_private_repo.md)
+### 1. [🔒 GitHub Repository Setup](docs/1_upload_to_github_repo.md)
 
 Learn how to:
 
