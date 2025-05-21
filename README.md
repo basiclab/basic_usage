@@ -23,11 +23,23 @@ Master code formatting with:
 - Pre-commit hooks setup (optional)
 - Best practices and troubleshooting
 
+### 3. [🚀 Python Environment with uv](docs/3_python_environment_with_uv.md)
+
+Learn modern Python package management with:
+
+- Fast and efficient package installation with uv
+- Automatic Python version management
+- Project dependency management
+- PyTorch integration with different accelerators
+- Best practices for reproducible environments
+
 ## 📁 Project Structure
 
 ```plaintext
 .
 ├── README.md
-├── 1_github_private_repo.md
-└── 2_python_code_formatting.md
+├── docs/
+│   ├── 1_upload_to_github_repo.md
+│   ├── 2_python_code_formatting.md
+│   └── 3_python_environment_with_uv.md
 ```
