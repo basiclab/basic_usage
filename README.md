@@ -13,17 +13,7 @@ Learn how to:
 - Push your local code to GitHub
 - Handle common issues and follow best practices
 
-### 2. [✨ Python Code Formatting](docs/2_python_code_formatting.md)
-
-Master code formatting with:
-
-- Black: The uncompromising Python code formatter
-- isort: Import sorting and organization
-- IDE integration
-- Pre-commit hooks setup (optional)
-- Best practices and troubleshooting
-
-### 3. [🚀 Python Environment with uv](docs/3_python_environment_with_uv.md)
+### 2. [🚀 Python Environment with uv](docs/2_python_environment_with_uv.md)
 
 Learn modern Python package management with:
 
@@ -33,6 +23,26 @@ Learn modern Python package management with:
 - PyTorch integration with different accelerators
 - Best practices for reproducible environments
 
+### 3. [✨ Python Code Formatting](docs/3_python_code_formatting.md)
+
+Master code formatting with:
+
+- Black: The uncompromising Python code formatter
+- isort: Import sorting and organization
+- Ruff: Fast Python linter and formatter
+- IDE integration
+- Best practices and troubleshooting
+
+### 4. [🎭 Terminal Management with tmux](docs/4_tmux_usage.md)
+
+Enhance your terminal productivity with:
+
+- Session management and persistence
+- Window and pane organization
+- Remote development workflows
+- Custom configuration and plugins
+- Best practices for efficient terminal usage
+
 ## 📁 Project Structure
 
 ```plaintext
@@ -40,6 +50,7 @@ Learn modern Python package management with:
 ├── README.md
 ├── docs/
 │   ├── 1_upload_to_github_repo.md
-│   ├── 2_python_code_formatting.md
-│   └── 3_python_environment_with_uv.md
+│   ├── 2_python_environment_with_uv.md
+│   ├── 3_python_code_formatting.md
+│   └── 4_tmux_usage.md
 ```

@@ -2,6 +2,9 @@
 
 This guide explains how to use Black and isort to automatically format your Python code, ensuring consistency and readability across your project.
 
+>[!NOTE]
+> If you choose using Ruff, you can skip the Black and isort installation and configuration and jump to the [Advanced Usage with Ruff](#-advanced-usage-with-ruff) section.
+
 ## 🎯 What are Black and isort?
 
 - **Black**: An opinionated Python code formatter that automatically formats your code to comply with PEP 8 style guide
@@ -14,6 +17,9 @@ This guide explains how to use Black and isort to automatically format your Pyth
 ```bash
 # Install both tools using pip
 pip install black isort
+
+# or manage it with uv, using the --dev flag to add it to the dev dependencies
+uv add black isort --dev
 ```
 
 ## 🚀 Basic Usage
@@ -57,7 +63,7 @@ isort --check-only your_file.py
 
 ### Black Configuration
 
-Create a `pyproject.toml` file in your project root:
+Create a `pyproject.toml` file in your project root (`uv` will automatically create it for you):
 
 ```toml
 [tool.black]
@@ -101,10 +107,12 @@ line_length = 88
 
 ```json
 {
-    "python.formatting.provider": "black",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-        "source.organizeImports": true
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        },
+        "editor.defaultFormatter": "black"
     }
 }
 ```
@@ -148,34 +156,6 @@ def my_function(x: int, y: int) -> int:
 3. **CI/CD Integration**: Add formatting checks to your CI/CD pipeline
 4. **Documentation**: Document your formatting rules in your project's README
 
-## 🔧 Pre-commit Hook Setup (Optional)
-
-1. Install pre-commit:
-
-```bash
-pip install pre-commit
-```
-
-2. Create `.pre-commit-config.yaml`:
-
-```yaml
-repos:
--   repo: https://github.com/psf/black
-    rev: 23.12.1
-    hooks:
-    -   id: black
--   repo: https://github.com/pycqa/isort
-    rev: 5.13.2
-    hooks:
-    -   id: isort
-```
-
-3. Install the hooks:
-
-```bash
-pre-commit install
-```
-
 ## ⚠️ Troubleshooting
 
 ### Common Issues
@@ -192,6 +172,122 @@ pre-commit install
    - Use isort's `--profile black` option
    - Configure import sections in isort settings
 
-## 🔍 Advanced Usage
+## 🔍 Advanced Usage with Ruff
 
-Users can also choose [ruff](https://github.com/astral-sh/ruff) as an alternative to Black and isort. We will cover it in another guide.
+Ruff is a fast Python linter and formatter written in Rust. It can replace multiple tools like Black, isort, and various linters with a single, fast tool.
+
+### Benefits of Using Ruff
+
+1. **Speed**: Ruff is significantly faster than Black and isort
+2. **Unified Tool**: Combines formatting and linting in one tool
+3. **Compatibility**: Maintains compatibility with Black's formatting style
+4. **Extensible**: Supports over 800 lint rules across 50+ built-in plugins
+5. **Modern**: Written in Rust for better performance and reliability
+
+### Installation
+
+```bash
+# Install Ruff using pip
+pip install ruff
+
+# Or manage it with uv
+uv add ruff --dev
+```
+
+### Basic Usage
+
+```bash
+# Run the linter
+ruff check .
+
+# Run the formatter
+ruff format .
+
+# Fix auto-fixable issues
+ruff check --fix .
+
+# Format and fix in one command
+ruff check --fix . && ruff format .
+```
+
+### Configuration
+
+Create a `pyproject.toml` file in your project root:
+
+```toml
+[tool.ruff]
+# Set the maximum line length to 88 (same as Black)
+line-length = 88
+
+# Enable all rules by default
+select = ["ALL"]
+
+# Exclude specific rules
+ignore = [
+    "E501",  # Line too long
+    "D203",  # 1 blank line required before class docstring
+    "D212",  # Multi-line docstring summary should start at the first line
+]
+
+# Target Python 3.8+. Feel free to change it to the latest version you are using.
+target-version = "py38"
+
+[tool.ruff.format]
+# Use double quotes for strings
+quote-style = "double"
+
+# Indent with spaces, rather than tabs
+indent-style = "space"
+
+# Respect magic trailing commas
+skip-magic-trailing-comma = false
+
+# Like Black, respect magic trailing commas
+line-ending = "auto"
+```
+
+### Integration with IDEs
+
+#### Setup in VS Code
+
+1. Install the [Ruff extension](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff)
+2. Add to your `settings.json`:
+
+```json
+{
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    },
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  }
+}
+```
+
+#### Example Before and After
+
+Before:
+
+```python
+from datetime import datetime
+import os
+import sys
+from typing import List,Dict
+def my_function(  x: int,y: int  )->int:
+    return x+y
+```
+
+After Ruff formatting:
+
+```python
+import os
+import sys
+from datetime import datetime
+from typing import Dict, List
+
+
+def my_function(x: int, y: int) -> int:
+    return x + y
+```
