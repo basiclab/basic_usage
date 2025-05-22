@@ -48,9 +48,23 @@ Enhance your terminal productivity with:
 ```plaintext
 .
 ├── README.md
+├── CONTRIBUTING.md
 ├── docs/
 │   ├── 1_upload_to_github_repo.md
 │   ├── 2_python_environment_with_uv.md
 │   ├── 3_python_code_formatting.md
 │   └── 4_tmux_usage.md
 ```
+
+## 🤝 Contributing
+
+We welcome contributions! Including:
+
+- Report issues
+- Suggest improvements
+
+After you have made your changes, please create a pull request.
+
+## 📜 License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
