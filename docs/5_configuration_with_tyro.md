@@ -18,7 +18,7 @@
 
 At its core, Tyro's entry point is `tyro.cli()`, which takes either:
 
-1. **Function** (Used for simple script)
+1. **function** (Used for simple script)
 
    Tyro generates flags corresponding to the function's parameters, parses them, and then calls your function directly.
 
@@ -45,7 +45,7 @@ At its core, Tyro's entry point is `tyro.cli()`, which takes either:
     ╰────────────────────────────────────────────────────╯
    ```
 
-2. **A dataclass (or other type)**
+2. **dataclass (or other type)** (used for detailed settings)
 
    Tyro populates an instance of your dataclass from the CLI and returns it for further use.
 
