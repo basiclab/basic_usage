@@ -33,7 +33,7 @@ Master code formatting with:
 - IDE integration
 - Best practices and troubleshooting
 
-### 4. [🎭 Terminal Management with tmux](docs/4_tmux_usage.md)
+### 4. [🖥️ Terminal Management with tmux](docs/4_tmux_usage.md)
 
 Enhance your terminal productivity with:
 
@@ -42,6 +42,15 @@ Enhance your terminal productivity with:
 - Remote development workflows
 - Custom configuration and plugins
 - Best practices for efficient terminal usage
+
+### 5. [⚙️ Configuration with Tyro](docs/5_configuration_with_tyro.md)
+
+Master Python configuration management with:
+
+- Command-line interface generation
+- Hierarchical configuration structures
+- Default value management
+- Configuration file saving and loading
 
 ## 📁 Project Structure
 
@@ -53,7 +62,8 @@ Enhance your terminal productivity with:
 │   ├── 1_upload_to_github_repo.md
 │   ├── 2_python_environment_with_uv.md
 │   ├── 3_python_code_formatting.md
-│   └── 4_tmux_usage.md
+│   ├── 4_tmux_usage.md
+│   └── 5_configuration_with_tyro.md
 ```
 
 ## 🤝 Contributing
